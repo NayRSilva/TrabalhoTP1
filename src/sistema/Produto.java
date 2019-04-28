@@ -16,7 +16,7 @@ public abstract class Produto {
 	}
 	
 	// Método abstrato.
-	public abstract double estabelece_preco(double preco_jogo, Plataforma plataforma);
+	public abstract double estabelece_preco(double preco_jogo);
 
 	
 	// Getters & Setters

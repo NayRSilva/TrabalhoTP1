@@ -14,8 +14,8 @@ public class Jogo extends Produto{
 	}
 
 	@Override
-	public double estabelece_preco(double preco_jogo, Plataforma plataforma) {
-		return getPreco_jogo() + plataforma.getPreco();
+	public double estabelece_preco(double preco_jogo) {
+		return getPreco_jogo() + this.plataforma.getPreco();
 	}
 
 	public int getId() {
