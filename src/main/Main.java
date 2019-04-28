@@ -15,6 +15,8 @@ public class Main {
 		System.out.println(The_Witcher.getNome());
 		System.out.println(The_Witcher.getPlataforma());
 		System.out.println(The_Witcher.getPlataforma().getNome());
+		Console Playstation = new Console("Playstation", 200, 3, 3, 232323);
+		System.out.println(Playstation.getNome());
 		
 	}
 	
