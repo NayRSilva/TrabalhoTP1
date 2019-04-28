@@ -1,6 +1,6 @@
-package Produto;
+package sistema;
 
-class Plataforma {
+public class Plataforma {
 	private String nome;
 	private double preco;
 

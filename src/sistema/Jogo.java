@@ -1,12 +1,12 @@
-package Produto;
+package sistema;
 
-class Jogo extends Produto{
+public class Jogo extends Produto{
 	private int id;
 	private double preco_jogo;
 	private Plataforma plataforma;
 	
 	public Jogo(String nome, double preco, int quantidade, int quantidade_livre,
-			int id, double preco_jogo, Plataforma plataforma) {
+			int id, Plataforma plataforma) {
 		
 		super(nome, preco, quantidade, quantidade_livre);
 		this.id = id;
@@ -34,5 +34,7 @@ class Jogo extends Produto{
 		this.preco_jogo = preco_jogo;
 	}
 	
-	
+	public Plataforma getPlataforma() {
+		return plataforma;
+	}
 }

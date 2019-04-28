@@ -1,6 +1,6 @@
-package Produto;
+package sistema;
 
-abstract class Produto {
+public abstract class Produto {
 	private String nome;
 	private double preco;
 	private int quantidade;
