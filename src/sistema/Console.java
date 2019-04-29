@@ -29,11 +29,10 @@ public class Console extends Produto{
 		return lista;
 	}
 	
-	public int getJogosConsoleNomes() {
+	public void getJogosConsoleNomes() {
 	    for(Jogo x:this.getJogosConsole()){  
 	        System.out.println(x.getJogo().getNome());  
 	    }
-	    return 1;
 	}
 	
 }

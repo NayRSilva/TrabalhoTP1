@@ -48,9 +48,8 @@ public class Jogo extends Produto{
 		return (getConsole().getPreco() * 0.1);
 	}
 	
-	private int addToConsoleList(Jogo jogo) {
+	private void addToConsoleList(Jogo jogo) {
 		List<Jogo> lista = this.getConsole().getJogosConsole();
 		lista.add(jogo);
-		return 1;
 	}
 }

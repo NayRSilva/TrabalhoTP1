@@ -23,6 +23,8 @@ public class Main {
 		um.addConsoleAluguel(PS4);
 		um.addJogoAluguel(The_Witcher);
 		System.out.println(um.getNum_itens());
+		um.getConsoleNomes();
+		um.getJogosNomes();
 		
 	}
 	
