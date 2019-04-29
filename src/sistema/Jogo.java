@@ -51,6 +51,6 @@ public class Jogo extends Produto{
 	private int addToConsoleList(Jogo jogo) {
 		List<Jogo> lista = this.getConsole().getJogosConsole();
 		lista.add(jogo);
-		return 0;
+		return 1;
 	}
 }
