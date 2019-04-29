@@ -2,7 +2,7 @@ package sistema;
 
 public abstract class Produto {
 	private String nome;
-	private double preco;
+	protected double preco;
 	private int quantidade;
 	private int quantidade_livre;
 	
@@ -16,8 +16,7 @@ public abstract class Produto {
 	}
 	
 	// Método abstrato.
-	public abstract double estabelece_preco(double preco_jogo);
-
+	public abstract double getPreco();
 	
 	// Getters & Setters
 	public String getNome() {
@@ -26,10 +25,6 @@ public abstract class Produto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public double getPreco() {
-		return preco;
 	}
 
 	public void setPreco(double preco) {

@@ -1,21 +1,27 @@
 package sistema;
+import java.util.*;
 
 public class Jogo extends Produto{
 	private int id;
 	private double preco_jogo;
-	private Plataforma plataforma;
+	private Console console;
 	
 	public Jogo(String nome, double preco, int quantidade, int quantidade_livre,
-			int id, Plataforma plataforma) {
+			int id, Console console) {
 		
 		super(nome, preco, quantidade, quantidade_livre);
 		this.id = id;
-		this.plataforma = plataforma;
+		this.console = console;
+		addToConsoleList(this);
 	}
 
 	@Override
-	public double estabelece_preco(double preco_jogo) {
-		return getPreco_jogo() + this.plataforma.getPreco();
+	public double getPreco() {
+		return preco + getBasePrice();
+	}
+	
+	public Jogo getJogo() {
+		return this;
 	}
 
 	public int getId() {
@@ -34,7 +40,17 @@ public class Jogo extends Produto{
 		this.preco_jogo = preco_jogo;
 	}
 	
-	public Plataforma getPlataforma() {
-		return plataforma;
+	public Console getConsole() {
+		return console;
+	}
+	
+	private double getBasePrice() {
+		return (getConsole().getPreco() * 0.1);
+	}
+	
+	private int addToConsoleList(Jogo jogo) {
+		List<Jogo> lista = this.getConsole().getJogosConsole();
+		lista.add(jogo);
+		return 0;
 	}
 }
