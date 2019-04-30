@@ -29,6 +29,7 @@ public class Main {
 		
 		// Exemplo de um aluguel e seus métodos
 		Aluguel um = new Aluguel(one, 4 ,2, 2);
+		
 		System.out.println(um.getPreco_aluguel());
 		um.addConsoleAluguel(PS4);
 		System.out.println(um.getPreco_aluguel());
