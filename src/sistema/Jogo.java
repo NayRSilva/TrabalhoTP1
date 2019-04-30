@@ -5,13 +5,15 @@ public class Jogo extends Produto{
 	private int id;
 	private double preco_jogo;
 	private Console console;
+	private double taxa;
 	
-	public Jogo(String nome, double preco, int quantidade, int quantidade_livre,
+	public Jogo(String nome, double preco, int quantidade,
 			int id, Console console) {
 		
-		super(nome, preco, quantidade, quantidade_livre);
+		super(nome, preco, quantidade);
 		this.id = id;
 		this.console = console;
+		this.taxa = 0.10;
 		addToConsoleList(this);
 	}
 
@@ -45,9 +47,21 @@ public class Jogo extends Produto{
 	}
 	
 	private double getBasePrice() {
-		return (getConsole().getPreco() * 0.1);
+		return (getConsole().getPreco() * this.getTaxa());
 	}
 	
+	public double getTaxa() {
+		return taxa;
+	}
+
+	public void setTaxa(double taxa) {
+		this.taxa = taxa;
+	}
+
+	public void setConsole(Console console) {
+		this.console = console;
+	}
+
 	private void addToConsoleList(Jogo jogo) {
 		List<Jogo> lista = this.getConsole().getJogosConsole();
 		lista.add(jogo);

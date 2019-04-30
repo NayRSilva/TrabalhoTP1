@@ -3,8 +3,11 @@ import sistema.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		System.out.println("Hello");
+		
+		Funcionario fun = new Funcionario("Fun", "Fun@Fun", 321, 213, 454, 666);
+		System.out.println(fun.getNome());
 		
 		// Exemplo de um cliente e seus métodos
 		Cliente one = new Cliente("One", "one@one", 123, 321, 456, 789);
@@ -12,12 +15,12 @@ public class Main {
 
 		
 		// Exemplo de um console e seus métodos
-		Console PS4 = new Console("PS4", 50, 5, 5, 000001);
+		Console PS4 = new Console("PS4", 50, 5, 000001);
 		System.out.println(PS4.getNome());
 		
 		
 		// Exemplo de um jogo e seus métodos
-		Jogo The_Witcher = new Jogo("The Witcher", 15, 1,1,12345,PS4);
+		Jogo The_Witcher = new Jogo("The Witcher", 10, 2,12345,PS4);
 		System.out.println(The_Witcher.getNome());
 		System.out.println(The_Witcher.getConsole());
 		System.out.println(The_Witcher.getConsole().getNome());
@@ -27,14 +30,24 @@ public class Main {
 		PS4.getJogosConsoleNomes();
 		
 		
-		// Exemplo de um aluguel e seus métodos
-		Aluguel um = new Aluguel(one, 4 ,2, 2);
+		// Exemplo de um carrinho e seus métodos
+		Carrinho um = new Carrinho(one, 4);
 		
-		System.out.println(um.getPreco_aluguel());
-		um.addConsoleAluguel(PS4);
-		System.out.println(um.getPreco_aluguel());
-		um.addJogoAluguel(The_Witcher);
-		System.out.println(um.getPreco_aluguel());
+		System.out.println(um.getPreco_carrinho());
+		um.addConsoleCarrinho(PS4);
+		System.out.println(um.getPreco_carrinho());
+		um.addJogoCarrinho(The_Witcher);
+		um.addJogoCarrinho(The_Witcher);
+		System.out.println(um.getPreco_carrinho());
+		
+		// Exemplo de um Aluguel e seus métodos
+		Aluguel alugs = new Aluguel(um, fun);
+		System.out.print(alugs.getDia() + "/");
+		System.out.print(alugs.getMes() + "/");
+		System.out.println(alugs.getAno());
+		System.out.println(alugs.getPreco_aluguel());
+		System.out.println(alugs.getNum_itens());
+	
 	}
 	
 }

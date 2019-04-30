@@ -2,13 +2,13 @@ package sistema;
 import java.util.*;
 
 public class Console extends Produto{
-	private ArrayList<Jogo> lista_jogos;
 	private int id;
+	private ArrayList<Jogo> lista_jogos;
 	
-	public Console(String nome, double preco, int quantidade, int quantidade_livre,
+	public Console(String nome, double preco, int quantidade,
 			int id) {
 		
-		super(nome, preco, quantidade, quantidade_livre);
+		super(nome, preco, quantidade);
 		this.id = id;
 		lista_jogos = new ArrayList<Jogo>();	
 	}
@@ -17,14 +17,15 @@ public class Console extends Produto{
 	public double getPreco() {
 		return preco;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public ArrayList<Jogo> getJogosConsole(){
 		return lista_jogos;
 	}

@@ -7,12 +7,11 @@ public abstract class Produto {
 	private int quantidade_livre;
 	
 	// Construtor "abstrato".
-	public Produto(String nome, double preco, int quantidade, int quantidade_livre) {
+	public Produto(String nome, double preco, int quantidade) {
 		this.nome = nome;
 		this.preco = preco;
 		this.quantidade = quantidade;
-		this.quantidade_livre = quantidade_livre;
-				
+		this.quantidade_livre = quantidade;			
 	}
 	
 	// Método abstrato.
