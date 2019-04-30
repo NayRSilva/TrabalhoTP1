@@ -7,7 +7,8 @@ public abstract class Pessoa {
 	private int rg;
 	private int cpf;
 	
-	public Pessoa (String nome, String email, int telefone, int rg, int cpf) {
+	public Pessoa (String nome, String email, int telefone,
+			int rg, int cpf) {
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;

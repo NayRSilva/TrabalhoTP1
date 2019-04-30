@@ -5,7 +5,8 @@ public class Console extends Produto{
 	private int id;
 	private ArrayList<Jogo> lista_jogos;
 	
-	public Console(String nome, double preco, int quantidade,
+	public Console(String nome, double preco,
+			int quantidade,
 			int id) {
 		
 		super(nome, preco, quantidade);

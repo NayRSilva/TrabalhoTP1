@@ -13,7 +13,7 @@ public class Carrinho {
 	ArrayList<Console> consoles;
 	ArrayList<Jogo> jogos;
 
-	protected Carrinho() throws Exception{
+	protected Carrinho() {
 		
 	}
 	
@@ -172,6 +172,14 @@ public class Carrinho {
 		}
 	}
 	
+	public void rmvJogoCarrinho() {
+		
+	}
+	
+	public void rmvConsoleCarrinho() {
+		
+	}
+	
 	public void getConsoleNomes() {
 	    for(Console x:this.getConsoles()){  
 	        System.out.println(x.getNome());  
@@ -220,7 +228,9 @@ public class Carrinho {
 	    	total_jogos = total_jogos + x.getPreco();  
         
 	    }
-	    preco_atualizado = this.dias_alugado * (total_jogos + total_concoles);
+	    preco_atualizado = this.dias_alugado 
+	    						* (total_jogos 
+	    						+ total_concoles);
 	    this.setPreco_carrinho(preco_atualizado);
 	}
 	

@@ -3,7 +3,7 @@ import sistema.*;
 
 public class Main {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		System.out.println("Hello");
 		
 		Funcionario fun = new Funcionario("Fun", "Fun@Fun", 321, 213, 454, 666);
@@ -38,15 +38,19 @@ public class Main {
 		System.out.println(um.getPreco_carrinho());
 		um.addJogoCarrinho(The_Witcher);
 		um.addJogoCarrinho(The_Witcher);
+		um.addJogoCarrinho(The_Witcher);
+		um.addJogoCarrinho(The_Witcher);
 		System.out.println(um.getPreco_carrinho());
 		
+		try {
 		// Exemplo de um Aluguel e seus métodos
-		Aluguel alugs = new Aluguel(um, fun);
-		System.out.print(alugs.getDia() + "/");
-		System.out.print(alugs.getMes() + "/");
-		System.out.println(alugs.getAno());
-		System.out.println(alugs.getPreco_aluguel());
-		System.out.println(alugs.getNum_itens());
+			Aluguel alugs = new Aluguel(um, fun);
+			System.out.println(alugs.getCliente().getNome());
+			
+		} catch (Exception ex){
+			System.out.println(ex.getMessage());
+		}
+		
 	
 	}
 	

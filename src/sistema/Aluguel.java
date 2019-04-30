@@ -8,15 +8,15 @@ public class Aluguel extends Carrinho {
 	private Carrinho compra;
 	private Funcionario funcionario;
 	private int id;
-	private final Cliente cliente;
+	private Cliente cliente;
 	private int num_itens;
-	private final int num_consoles;
-	private final int num_jogos;
-	private final int dias_alugado;
-	private final double preco_aluguel;
-	private final Calendar data;
-	private final ArrayList<Console> consoles;
-	private final ArrayList<Jogo> jogos;
+	private int num_consoles;
+	private int num_jogos;
+	private int dias_alugado;
+	private double preco_aluguel;
+	private Calendar data;
+	private ArrayList<Console> consoles;
+	private ArrayList<Jogo> jogos;
 	private int devolvido;
 	
 	public Aluguel(Carrinho compra, Funcionario funcionario) throws Exception {
@@ -31,7 +31,7 @@ public class Aluguel extends Carrinho {
 		this.data			= compra.getData();
 		this.consoles 		= compra.getConsoles();
 		this.jogos 			= compra.getJogos();
-		this.devolvido      = 0;
+		this.devolvido      = 0;	
 		this.atualizaQuantidades();
 	}
 
@@ -115,7 +115,7 @@ public class Aluguel extends Carrinho {
 		this.setDevolvido(1);
 	}
 	
-	private void atualizaQuantidades() throws Exception {
+	private void atualizaQuantidades() throws Exception{
 		if (this.getConsoles().size() >= 0) {
 		    for(Console x:this.getConsoles()){  
 		    	  if (x.getQuantidade_livre() <= 0) {
