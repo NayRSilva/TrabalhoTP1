@@ -2,7 +2,7 @@ package sistema;
 import java.util.*;
 
 public class Console extends Produto{
-	private ArrayList<Jogo> lista;
+	private ArrayList<Jogo> lista_jogos;
 	private int id;
 	
 	public Console(String nome, double preco, int quantidade, int quantidade_livre,
@@ -10,7 +10,7 @@ public class Console extends Produto{
 		
 		super(nome, preco, quantidade, quantidade_livre);
 		this.id = id;
-		lista = new ArrayList<Jogo>();	
+		lista_jogos = new ArrayList<Jogo>();	
 	}
 	
 	@Override
@@ -26,7 +26,7 @@ public class Console extends Produto{
 		this.id = id;
 	}
 	public ArrayList<Jogo> getJogosConsole(){
-		return lista;
+		return lista_jogos;
 	}
 	
 	public void getJogosConsoleNomes() {
