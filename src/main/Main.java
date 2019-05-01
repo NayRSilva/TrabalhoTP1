@@ -41,6 +41,7 @@ public class Main {
 		um.addJogoCarrinho(The_Witcher);
 		um.addJogoCarrinho(The_Witcher);
 		System.out.println(um.getPreco_carrinho());
+		System.out.println(The_Witcher.getQuantidade_livre());
 		
 		try {
 		// Exemplo de um Aluguel e seus métodos
@@ -50,7 +51,17 @@ public class Main {
 		} catch (Exception ex){
 			System.out.println(ex.getMessage());
 		}
-		
+		System.out.println(The_Witcher.getQuantidade_livre());
+		um.rmvJogoCarrinho(The_Witcher, 3);
+		System.out.println(The_Witcher.getQuantidade_livre());
+		um.getJogosNomes();
+		try {
+			Aluguel alugs = new Aluguel(um, fun);
+			System.out.println(alugs.getCliente().getNome());
+			
+		} catch (Exception ex){
+			System.out.println(ex.getMessage());
+		}
 	
 	}
 	

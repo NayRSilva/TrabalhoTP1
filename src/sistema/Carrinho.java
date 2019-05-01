@@ -172,12 +172,58 @@ public class Carrinho {
 		}
 	}
 	
-	public void rmvJogoCarrinho() {
-		
+	public void rmvJogoCarrinho(Jogo jogo) {
+		try {
+			this.getJogos().remove(jogo);	
+		} catch (Exception ex) {
+			System.out.println("Erro - Remoção de " + jogo +" do carrinho");
+		}
 	}
 	
-	public void rmvConsoleCarrinho() {
-		
+	public void rmvJogoCarrinho(Jogo jogo,int quantidade) {
+		try {
+			int i = quantidade;
+			while (i != 0) {
+				this.getJogos().remove(jogo);
+				i--;
+			} 
+		} catch (Exception ex) {
+			System.out.println("Erro - Remoção de " + jogo +" do carrinho n vezes");
+			}
+	}
+	public void rmvJogoCarrinhoAll(Jogo jogo) {
+		try {
+			while (this.getJogos().remove(jogo)){}
+		} catch (Exception ex) {
+			System.out.println("Erro - Remoção de todos as ocorrências de " + jogo +" do carrinho");
+		}
+	}
+	
+	public void rmvConsoleCarrinho(Console console) {
+		try {
+			this.getConsoles().remove(console);	
+		} catch (Exception ex) {
+			System.out.println("Erro - Remoção de " + console +" do carrinho");
+		}
+	}
+	
+	public void rmvConsoleCarrinho(Console console,int quantidade) {
+		try {
+			int i = quantidade;
+			while (i <= 0) {
+				this.getConsoles().remove(console);
+				i--;
+			} 
+		} catch (Exception ex) {
+			System.out.println("Erro - Remoção de " + console +" do carrinho n vezes");
+			}
+	}
+	public void rmvConsoleCarrinhoAll(Console console,int quantidade) {
+		try {
+			while (this.getConsoles().remove(console)){}
+		} catch (Exception ex) {
+			System.out.println("Erro - Remoção de todos as ocorrências de " + console +" do carrinho");
+		}
 	}
 	
 	public void getConsoleNomes() {

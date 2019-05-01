@@ -20,19 +20,26 @@ public class Aluguel extends Carrinho {
 	private int devolvido;
 	
 	public Aluguel(Carrinho compra, Funcionario funcionario) throws Exception {
-		super();
-		this.funcionario    = funcionario;
-		this.cliente 		= compra.getCliente(); 
-		this.dias_alugado	= compra.getDias_alugado();
-		this.num_consoles 	= compra.getNum_consoles();
-		this.num_jogos 		= compra.getNum_jogos();
-		this.num_itens 		= compra.getNum_itens();
-		this.preco_aluguel	= compra.getPreco_carrinho();
-		this.data			= compra.getData();
-		this.consoles 		= compra.getConsoles();
-		this.jogos 			= compra.getJogos();
-		this.devolvido      = 0;	
-		this.atualizaQuantidades();
+		try {	
+			this.funcionario    = funcionario;
+			this.cliente 		= compra.getCliente(); 
+			this.dias_alugado	= compra.getDias_alugado();
+			this.num_consoles 	= compra.getNum_consoles();
+			this.num_jogos 		= compra.getNum_jogos();
+			this.num_itens 		= compra.getNum_itens();
+			this.preco_aluguel	= compra.getPreco_carrinho();
+			this.data			= compra.getData();
+			this.consoles 		= compra.getConsoles();
+			this.jogos 			= compra.getJogos();
+			this.devolvido      = 0;	
+		try {
+			this.atualizaQuantidades();
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+		} catch (Exception ex){
+			System.out.println(ex.getMessage());
+		}
 	}
 
 	public Funcionario getFuncionario() {
@@ -116,24 +123,30 @@ public class Aluguel extends Carrinho {
 	}
 	
 	private void atualizaQuantidades() throws Exception{
+		int contaConsoles = 0;
 		if (this.getConsoles().size() >= 0) {
 		    for(Console x:this.getConsoles()){  
 		    	  if (x.getQuantidade_livre() <= 0) {
+		    		  x.setQuantidade_livre(x.getQuantidade_livre() + contaConsoles);
 		    		  throw new Exception("Console: "+ x.getNome() +" - Estoque Insuficiente OU "
 			    		  		+ "Console Indisponível");
 		    	  } else {
+		    	  contaConsoles++;
 		          x.setQuantidade_livre(x.getQuantidade_livre() - 1);
 		          System.out.println(x.getNome() +": Alugado");
 		    	  }
 		    }
 		}
 		if (this.getJogos().size() >= 0) {
+			int contaJogos = 0;
 		    for(Jogo x:this.getJogos()){  
 		    	  if (x.getQuantidade_livre() <= 0) {
+		    		  x.setQuantidade_livre(x.getQuantidade_livre() + contaJogos);
 		    		  throw new Exception("Jogo: "+ x.getNome() +" - Estoque Insuficiente OU "
 		    		  		+ "Jogo Indisponível");
 		    		  
 		    	  } else {
+		    		  contaJogos++;
 		    		  x.setQuantidade_livre(x.getQuantidade_livre() - 1);
 		    		  System.out.println(x.getNome() +": Alugado");
 		    	  }
