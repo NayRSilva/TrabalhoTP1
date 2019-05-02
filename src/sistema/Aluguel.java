@@ -18,8 +18,9 @@ public class Aluguel extends Carrinho {
 	private ArrayList<Console> consoles;
 	private ArrayList<Jogo> jogos;
 	private int devolvido;
-	
-	public Aluguel(Carrinho compra, Funcionario funcionario) throws Exception {
+	private int cancelado;
+
+	public Aluguel(Carrinho compra, Funcionario funcionario) {
 		try {	
 			this.funcionario    = funcionario;
 			this.cliente 		= compra.getCliente(); 
@@ -27,18 +28,29 @@ public class Aluguel extends Carrinho {
 			this.num_consoles 	= compra.getNum_consoles();
 			this.num_jogos 		= compra.getNum_jogos();
 			this.num_itens 		= compra.getNum_itens();
-			this.preco_aluguel	= compra.getPreco_carrinho();
+			this.preco_aluguel	= compra.getPreco();
 			this.data			= compra.getData();
 			this.consoles 		= compra.getConsoles();
 			this.jogos 			= compra.getJogos();
 			this.devolvido      = 0;	
-		try {
 			this.atualizaQuantidades();
-		} catch (Exception ex) {
+		} catch (Exception ex){
+			this.cancelado = 1;
 			System.out.println(ex.getMessage());
 		}
-		} catch (Exception ex){
-			System.out.println(ex.getMessage());
+	}
+	public int getStatus() {
+		if (this.getCancelado() == 1) {
+			System.out.println("Aluguel Canelado");
+			return -1;
+		} 
+		if (this.getDevolvido() == 1) {
+			System.out.println("Aluguel Devolvido");
+			return 0;
+
+		} else {
+			System.out.println("Aluguel em Andamento");
+			return 1;
 		}
 	}
 
@@ -74,7 +86,7 @@ public class Aluguel extends Carrinho {
 		return dias_alugado;
 	}
 
-	public double getPreco_aluguel() {
+	public double getPreco() {
 		return preco_aluguel;
 	}
 
@@ -100,6 +112,14 @@ public class Aluguel extends Carrinho {
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
+	}
+	
+	public int getCancelado() {
+		return cancelado;
+	}
+
+	public void setCancelado(int cancelado) {
+		this.cancelado = cancelado;
 	}
 	
 	public void devolucao() {
@@ -129,7 +149,7 @@ public class Aluguel extends Carrinho {
 		    	  if (x.getQuantidade_livre() <= 0) {
 		    		  x.setQuantidade_livre(x.getQuantidade_livre() + contaConsoles);
 		    		  throw new Exception("Console: "+ x.getNome() +" - Estoque Insuficiente OU "
-			    		  		+ "Console Indisponível");
+			    		  		+ "Console Indisponível - Aluguel Canelado");
 		    	  } else {
 		    	  contaConsoles++;
 		          x.setQuantidade_livre(x.getQuantidade_livre() - 1);
@@ -143,7 +163,7 @@ public class Aluguel extends Carrinho {
 		    	  if (x.getQuantidade_livre() <= 0) {
 		    		  x.setQuantidade_livre(x.getQuantidade_livre() + contaJogos);
 		    		  throw new Exception("Jogo: "+ x.getNome() +" - Estoque Insuficiente OU "
-		    		  		+ "Jogo Indisponível");
+		    		  		+ "Jogo Indisponível - Aluguel Canelado");
 		    		  
 		    	  } else {
 		    		  contaJogos++;

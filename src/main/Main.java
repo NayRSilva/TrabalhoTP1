@@ -6,20 +6,20 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Hello");
 		
-		Funcionario fun = new Funcionario("Fun", "Fun@Fun", 321, 213, 454, 666);
-		System.out.println(fun.getNome());
+		Funcionario Funcionario1 = new Funcionario("Funcionario1", "Funcionario1@Funcionario1", 321, 213, 454, 666);
+		System.out.println(Funcionario1.getNome());
 		
-		// Exemplo de um cliente e seus métodos
-		Cliente one = new Cliente("One", "one@one", 123, 321, 456, 789);
-		System.out.println(one.getNome());
+		// Exemplo de Carrinho1 cliente e seus métodos
+		Cliente Cliente1 = new Cliente("Cliente1", "Cliente1@Cliente1", 123, 321, 456, 789);
+		System.out.println(Cliente1.getNome());
 
 		
-		// Exemplo de um console e seus métodos
+		// Exemplo de Carrinho1 console e seus métodos
 		Console PS4 = new Console("PS4", 50, 5, 000001);
 		System.out.println(PS4.getNome());
 		
 		
-		// Exemplo de um jogo e seus métodos
+		// Exemplo de Carrinho1 jogo e seus métodos
 		Jogo The_Witcher = new Jogo("The Witcher", 10, 2,12345,PS4);
 		System.out.println(The_Witcher.getNome());
 		System.out.println(The_Witcher.getConsole());
@@ -30,38 +30,34 @@ public class Main {
 		PS4.getJogosConsoleNomes();
 		
 		
-		// Exemplo de um carrinho e seus métodos
-		Carrinho um = new Carrinho(one, 4);
+		// Exemplo de Carrinho1 carrinho e seus métodos
+		Carrinho Carrinho1 = new Carrinho(Cliente1, 4);
 		
-		System.out.println(um.getPreco_carrinho());
-		um.addConsoleCarrinho(PS4);
-		System.out.println(um.getPreco_carrinho());
-		um.addJogoCarrinho(The_Witcher);
-		um.addJogoCarrinho(The_Witcher);
-		um.addJogoCarrinho(The_Witcher);
-		um.addJogoCarrinho(The_Witcher);
-		System.out.println(um.getPreco_carrinho());
+		System.out.println(Carrinho1.getPreco());
+		Carrinho1.addConsoleCarrinho(PS4);
+		System.out.println(Carrinho1.getPreco());
+		Carrinho1.addJogoCarrinho(The_Witcher);
+		Carrinho1.addJogoCarrinho(The_Witcher);
+		Carrinho1.addJogoCarrinho(The_Witcher);
+		Carrinho1.addJogoCarrinho(The_Witcher);
+		System.out.println(Carrinho1.getNum_jogos());
+		System.out.println(Carrinho1.getPreco());
 		System.out.println(The_Witcher.getQuantidade_livre());
 		
-		try {
-		// Exemplo de um Aluguel e seus métodos
-			Aluguel alugs = new Aluguel(um, fun);
-			System.out.println(alugs.getCliente().getNome());
-			
-		} catch (Exception ex){
-			System.out.println(ex.getMessage());
-		}
+		
+		Aluguel Aluguel1 = new Aluguel(Carrinho1, Funcionario1);
+		Aluguel1.getStatus();
 		System.out.println(The_Witcher.getQuantidade_livre());
-		um.rmvJogoCarrinho(The_Witcher, 3);
+		Carrinho1.rmvJogoCarrinho(The_Witcher, 2);
 		System.out.println(The_Witcher.getQuantidade_livre());
-		um.getJogosNomes();
-		try {
-			Aluguel alugs = new Aluguel(um, fun);
-			System.out.println(alugs.getCliente().getNome());
+		System.out.println(Carrinho1.getNum_jogos());
+		Carrinho1.getJogosNomes();
+		Aluguel Aluguel2 = new Aluguel(Carrinho1, Funcionario1);
+		Aluguel2.getStatus();
+
 			
-		} catch (Exception ex){
-			System.out.println(ex.getMessage());
-		}
+
+
 	
 	}
 	

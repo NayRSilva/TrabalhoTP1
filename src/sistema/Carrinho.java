@@ -32,9 +32,9 @@ public class Carrinho {
 	
 	public Carrinho(Cliente cliente, int dias_alugado, Console console) {
 		
-		this.num_consoles = 0;
+		this.num_consoles = 1;
 		this.num_jogos = 0;
-		this.num_itens = 0;
+		this.num_itens = 1;
 		this.cliente = cliente;
 		this.dias_alugado = dias_alugado;
 		this.data = Calendar.getInstance();
@@ -46,9 +46,9 @@ public class Carrinho {
 	public Carrinho(Cliente cliente, int dias_alugado,
 		   Console console, Jogo jogo) {
 		
-		this.num_consoles = 0;
-		this.num_jogos = 0;
-		this.num_itens = 0;
+		this.num_consoles = 1;
+		this.num_jogos = 1;
+		this.num_itens = 2;
 		this.cliente = cliente;
 		this.dias_alugado = dias_alugado;
 		this.data = Calendar.getInstance();
@@ -58,11 +58,11 @@ public class Carrinho {
 		this.addJogoCarrinho(jogo);
 	}
 
-	public double getPreco_carrinho() {
+	public double getPreco() {
 		return preco_carrinho;
 	}
 
-	public void setPreco_carrinho(double preco_carrinho) {
+	public void setPreco(double preco_carrinho) {
 		this.preco_carrinho = preco_carrinho;
 	}
 
@@ -100,6 +100,7 @@ public class Carrinho {
 
 	public void setNum_consoles(int num_consoles) {
 		this.num_consoles = num_consoles;
+		this.quantidadeItens();
 	}
 
 	public int getNum_jogos() {
@@ -108,6 +109,7 @@ public class Carrinho {
 
 	public void setNum_jogos(int num_jogos) {
 		this.num_jogos = num_jogos;
+		this.quantidadeItens();
 	}
 
 	public void setConsoles(ArrayList<Console> consoles) {
@@ -174,8 +176,10 @@ public class Carrinho {
 	
 	public void rmvJogoCarrinho(Jogo jogo) {
 		try {
-			this.getJogos().remove(jogo);	
-		} catch (Exception ex) {
+			this.getJogos().remove(jogo);
+			this.setNum_jogos(this.getNum_jogos() - 1);
+			this.atualizaPreco();
+			} catch (Exception ex) {
 			System.out.println("Erro - Remoção de " + jogo +" do carrinho");
 		}
 	}
@@ -185,6 +189,8 @@ public class Carrinho {
 			int i = quantidade;
 			while (i != 0) {
 				this.getJogos().remove(jogo);
+				this.atualizaPreco();
+				this.setNum_jogos(this.getNum_jogos() - 1);
 				i--;
 			} 
 		} catch (Exception ex) {
@@ -193,7 +199,10 @@ public class Carrinho {
 	}
 	public void rmvJogoCarrinhoAll(Jogo jogo) {
 		try {
-			while (this.getJogos().remove(jogo)){}
+			while (this.getJogos().remove(jogo)){
+				this.setNum_jogos(this.getNum_jogos() - 1);
+				this.atualizaPreco();
+				}
 		} catch (Exception ex) {
 			System.out.println("Erro - Remoção de todos as ocorrências de " + jogo +" do carrinho");
 		}
@@ -202,7 +211,9 @@ public class Carrinho {
 	public void rmvConsoleCarrinho(Console console) {
 		try {
 			this.getConsoles().remove(console);	
-		} catch (Exception ex) {
+			this.setNum_consoles(this.getNum_consoles() - 1);
+			this.atualizaPreco();
+			} catch (Exception ex) {
 			System.out.println("Erro - Remoção de " + console +" do carrinho");
 		}
 	}
@@ -212,6 +223,8 @@ public class Carrinho {
 			int i = quantidade;
 			while (i <= 0) {
 				this.getConsoles().remove(console);
+				this.setNum_consoles(this.getNum_consoles() - 1);
+				this.atualizaPreco();
 				i--;
 			} 
 		} catch (Exception ex) {
@@ -220,7 +233,11 @@ public class Carrinho {
 	}
 	public void rmvConsoleCarrinhoAll(Console console,int quantidade) {
 		try {
-			while (this.getConsoles().remove(console)){}
+			while (this.getConsoles().remove(console)){
+				this.setNum_consoles(this.getNum_consoles() - 1);
+				this.atualizaPreco();
+				this.quantidadeItens();
+			}
 		} catch (Exception ex) {
 			System.out.println("Erro - Remoção de todos as ocorrências de " + console +" do carrinho");
 		}
@@ -277,7 +294,7 @@ public class Carrinho {
 	    preco_atualizado = this.dias_alugado 
 	    						* (total_jogos 
 	    						+ total_concoles);
-	    this.setPreco_carrinho(preco_atualizado);
+	    this.setPreco(preco_atualizado);
 	}
 	
 	private void quantidadeItens() {
