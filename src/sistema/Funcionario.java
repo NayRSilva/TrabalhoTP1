@@ -1,6 +1,6 @@
 package sistema;
 
-/*! \Classe Funcionário derivada da classe
+	/*! \brief Classe Funcionário derivada da classe
  *         abstrata Pessoa.
  *
  *  Essa classe implementa os Funcionários da loja,

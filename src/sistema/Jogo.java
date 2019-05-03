@@ -1,7 +1,7 @@
 package sistema;
 import java.util.*;
 
-/*! \ Classe Jogo extende a classe abstrata
+/*! \brief Classe Jogo extende a classe abstrata
  *   Produto
  *
  *  Essa classe é uma especialização da classe abstrata

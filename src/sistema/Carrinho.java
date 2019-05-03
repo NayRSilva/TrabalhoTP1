@@ -1,12 +1,12 @@
 package sistema;
 import java.util.*;
 
-/*! \A Classe Carrinho implementa a funcionalidade
- * de um carrinho de compras.
- *  
- *  Essa classe possui as listas de jogos e consoles
- *  e nela é possível.
- */
+	/*! \brief A Classe Carrinho implementa a funcionalidade
+	 /* de um carrinho de compras.
+	 *  
+	 *  Essa classe possui as listas de jogos e consoles
+	 *  e nela é possível.
+	 */
 
 public class Carrinho {
 	

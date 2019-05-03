@@ -3,13 +3,13 @@ package sistema;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/*! \A classe Aluguel implementa a funcionalidade.
- *   de um cliente alugar ou devolver um Jogo/Console.
- *	
- * Essa classe extende a classe Carrinho e possui como
- * propósito implementar as funcionalidades de locação e 
- * devolução dos jogos e consoles.
- */
+	/*! \brief A classe Aluguel implementa a funcionalidade.
+	 /*   de um cliente alugar ou devolver um Jogo/Console.
+	 *	
+	 * Essa classe extende a classe Carrinho e possui como
+	 * propósito implementar as funcionalidades de locação e 
+	 * devolução dos jogos e consoles.
+	 */
 
 public class Aluguel extends Carrinho {
 	

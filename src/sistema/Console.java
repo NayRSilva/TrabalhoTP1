@@ -1,7 +1,7 @@
 package sistema;
 import java.util.*;
 
-/*! \ Classe Console extende a classe abstrata
+	/*! \brief Classe Console extende a classe abstrata
  *   produto
  *
  *  Essa classe é uma especialização da classe abstrata

@@ -1,11 +1,11 @@
 package sistema;
 
-/*! \Classe Cliente derivada da
- * 			classe abstrata Pessoa
- *
- *  Essa classe implementa os clientes da loja, herdando os 
- *  atributos e métodos da classe abstrata Pessoa.
- */
+	/*! \brief Classe Cliente derivada da
+	 /* classe abstrata Pessoa
+	 *
+	 *  Essa classe implementa os clientes da loja, herdando os 
+	 *  atributos e métodos da classe abstrata Pessoa.
+	 */
 
 public class Cliente extends Pessoa {
 	private long id;
