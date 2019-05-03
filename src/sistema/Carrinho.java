@@ -1,6 +1,13 @@
 package sistema;
 import java.util.*;
 
+/*! \A Classe Carrinho implementa a funcionalidade
+ * de um carrinho de compras.
+ *  
+ *  Essa classe possui as listas de jogos e consoles
+ *  e nela é possível.
+ */
+
 public class Carrinho {
 	
 	private Cliente cliente;
@@ -13,9 +20,19 @@ public class Carrinho {
 	ArrayList<Console> consoles;
 	ArrayList<Jogo> jogos;
 
+	//! Construtor padrão.
+    /*!
+    */
+	
 	protected Carrinho() {
 		
 	}
+	
+	//! Sobrecarga do construtor Carrinho().
+    /*!
+      Esse construtor possui como parâmetros um cliente e 
+      a quantidade de dias do aluguel.
+    */
 	
 	public Carrinho(Cliente cliente, int dias_alugado) {
 		
@@ -30,6 +47,12 @@ public class Carrinho {
 		initPreco(preco_carrinho);
 	}
 	
+	//! Sobrecarga do construtor Carrinho().
+    /*!
+		Esse construtor apresenta um cliente, a quantidade de
+		dias do aluguel e um console como parâmetros.
+    */
+	
 	public Carrinho(Cliente cliente, int dias_alugado, Console console) {
 		
 		this.num_consoles = 1;
@@ -42,6 +65,12 @@ public class Carrinho {
 		jogos = new ArrayList<Jogo>();
 		this.addConsoleCarrinho(console);
 	}
+	
+	//! Sobrecarga do Construtor Carrinho().
+    /*!
+		Esse construtor apresenta um cliente, a quantidade de
+		dias do aluguel, um console e um jogo como parâmetros.
+    */
 	
 	public Carrinho(Cliente cliente, int dias_alugado,
 		   Console console, Jogo jogo) {
@@ -144,6 +173,13 @@ public class Carrinho {
 		return jogos;
 	}
 
+	//! Método para adicionar um console ao carrinho.
+    /*!
+		Esse método coloca um console no carrinho, atualiza o preço
+		e a quantidade do mesmo e também trata exceção para quando 
+		não é possível realizar os passos anteriores.
+    */
+	
 	public void addConsoleCarrinho(Console console) {
 		if (console.getQuantidade_livre() <= 0) {
 			System.out.println("Console Indisponível");
@@ -158,6 +194,13 @@ public class Carrinho {
 			}
 		}
 	}
+	
+	//! Método para adicionar um jogo ao carrinho.
+    /*!
+      	Esse método coloca um jogo no carrinho, atualiza o preço
+		e a quantidade do mesmo e também trata exceção para quando 
+		não é possível realizar os passos anteriores.
+    */
 	
 	public void addJogoCarrinho(Jogo jogo) {
 		if (jogo.getQuantidade_livre() <= 0) {
@@ -174,6 +217,14 @@ public class Carrinho {
 		}
 	}
 	
+	//! Remove um jogo do carrinho.
+    /*!
+      Retira um jogo do carrinho, atualiza o preço e
+      os itens do mesmo e da lista de produtos da loja.
+      
+      Além disso trata exceção quando não é possível remover um jogo.
+    */
+	
 	public void rmvJogoCarrinho(Jogo jogo) {
 		try {
 			this.getJogos().remove(jogo);
@@ -183,6 +234,11 @@ public class Carrinho {
 			System.out.println("Erro - Remoção de " + jogo +" do carrinho");
 		}
 	}
+	
+	//! Sobrecarga do método anterior.
+    /*!
+      Serve para remover mais de um jogo do carrinho.
+    */
 	
 	public void rmvJogoCarrinho(Jogo jogo,int quantidade) {
 		try {
@@ -197,6 +253,15 @@ public class Carrinho {
 			System.out.println("Erro - Remoção de " + jogo +" do carrinho n vezes");
 			}
 	}
+	
+	//! Análogo aos dois métodos de remoção de jogos. 
+    /*!
+      Possui a funcionalidade de remover todos os jogos do carrinho.
+      
+      Além disso trata a exceção quando não for possível remover
+      os jogos do carrinho.
+    */
+	
 	public void rmvJogoCarrinhoAll(Jogo jogo) {
 		try {
 			while (this.getJogos().remove(jogo)){
@@ -208,6 +273,14 @@ public class Carrinho {
 		}
 	}
 	
+	//! Remove um console do carrinho.
+    /*!
+      Retira um console do carrinho, atualiza o preço e
+      os itens do mesmo e na lista de produtos da loja.
+      
+      Além disso trata exceção quando não é possível remover um console.
+    */
+	
 	public void rmvConsoleCarrinho(Console console) {
 		try {
 			this.getConsoles().remove(console);	
@@ -217,6 +290,11 @@ public class Carrinho {
 			System.out.println("Erro - Remoção de " + console +" do carrinho");
 		}
 	}
+	
+	//! Sobrecarga do método anterior.
+    /*!
+      Serve para remover mais de um console do carrinho.
+    */
 	
 	public void rmvConsoleCarrinho(Console console,int quantidade) {
 		try {
@@ -231,6 +309,15 @@ public class Carrinho {
 			System.out.println("Erro - Remoção de " + console +" do carrinho n vezes");
 			}
 	}
+	
+	//! Análogo aos dois métodos de remoção de consoles. 
+    /*!
+      Possui a funcionalidade de remover todos os consoles do carrinho.
+      
+      Além disso trata a exceção para quando não for possível remover
+      os consoles do carrinho.
+    */
+	
 	public void rmvConsoleCarrinhoAll(Console console,int quantidade) {
 		try {
 			while (this.getConsoles().remove(console)){
@@ -243,17 +330,32 @@ public class Carrinho {
 		}
 	}
 	
+	//! Método para captar e imprimir os nomes dos consoles na tela.
+    /*!
+    */
+	
 	public void getConsoleNomes() {
 	    for(Console x:this.getConsoles()){  
 	        System.out.println(x.getNome());  
 	    }
 	}
 	
+	//! Método para captar e imprimir os nomes dos jogos na tela.
+    /*!
+    */
+
+	
 	public void getJogosNomes() {
 	    for(Jogo x:this.getJogos()){  
 	        System.out.println(x.getNome());  
 	    }
 	}
+	
+	//! Método para calcular o preço do carrinho
+    /*!
+      Esse método utiliza o método calculaPreco() e 
+      trata a exceção quando não for possível calcular o preço.
+    */
 	
 	private void initPreco(double preco_carrinho) {
 		try {
@@ -263,6 +365,13 @@ public class Carrinho {
 		}
 	}
 	
+	//! Método para calcular preço do carrinho
+    /*!
+      Esse método calcula o preço do carrinho baseado nas
+      taxas dos produtos da loja, dos seus preços base
+      definidos no escopo de suas classes e na quantidade
+      de dias que ficaram alugados.
+    */
 	
 	private double calculaPreco() throws Exception{
 		double total_concoles = 0;
@@ -278,6 +387,13 @@ public class Carrinho {
 	    }
 	    return this.dias_alugado * (total_jogos + total_concoles);
 	}
+	
+	//! Método para atualizar o preço do carrinho.
+    /*!
+      Atualiza o valor do carrinho com alguma remoção
+      ou adição de produto no mesmo. Trata as exceções
+      quanto ao procedimentos realizados para tal.
+    */
 	
 	private void atualizaPreco() throws Exception{
 		double total_concoles = 0;
@@ -296,6 +412,10 @@ public class Carrinho {
 	    						+ total_concoles);
 	    this.setPreco(preco_atualizado);
 	}
+	
+	//! Método para estabelecer a quantidade de itens no carrinho
+    /*!
+    */
 	
 	private void quantidadeItens() {
 		this.setNum_itens(getNum_consoles() + getNum_jogos());
